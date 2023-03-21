@@ -1,0 +1,88 @@
+*, body, a, h1, h2, h3, div, section, header, footer, nav {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  background-color: #75BC97;
+  margin: 0 auto;
+  display: flex;
+  object-fit: cover;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 500px;
+}
+.header img {
+  display: block;
+  max-width: 100%;
+}
+.header .banner-left {
+  width: 50%;
+}
+.header .banner-center {
+  object-fit: cover;
+  width: 20%;
+}
+.header .banner-right {
+  object-fit: cover;
+  width: 30%;
+}
+
+.main-title {
+  position: absolute;
+  left: 10%;
+  top: 8%;
+  font-size: 2.4rem;
+  line-height: 2.5em;
+}
+.main-title h1 {
+  margin-top: 20px;
+  color: white;
+}
+
+.select-menu {
+  margin-top: 50px;
+  display: grid;
+  justify-content: center;
+}
+.select-menu .container-select {
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+  font-size: 0.87rem;
+}
+.select-menu .container-select img {
+  max-width: 100%;
+  height: 75px;
+}
+.select-menu .container-select p {
+  margin-top: 6px;
+  color: #848484;
+  max-width: 25ch;
+}
+.select-menu .container-select select {
+  padding: 0 15px;
+  cursor: pointer;
+  margin-top: 24px;
+  width: 220px;
+  height: 40px;
+  border-radius: 19px;
+  border: 1px solid;
+  color: #A8A8A8;
+}
+.select-menu .second-title img {
+  margin-top: 90px;
+  max-width: 158px;
+}
+.select-menu .second-title h2 {
+  font-size: 3.4rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
