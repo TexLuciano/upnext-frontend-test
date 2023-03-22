@@ -5,125 +5,132 @@ $cinzaMidle: #848484;
 $greenDark: #1e6b4e;
 
 .section {
-  display: grid;
-  margin: 47px auto;
-  justify-content: center;
-  grid-template-columns: minmax(280px, 900px);
+  
+  margin: 0 auto;
 
-  .container-select {
-    list-style: none;
-    display: flex;
-    gap: 100px;
-    flex-wrap: wrap;
-    font-size: 0.87rem;
+  .container-color {
+
+    width: 100vw;
+    max-width: 100%;
     place-content: center;
+    background: #fff;
+    padding: 47px;
 
-    img {
-      max-width: 100%;
-      height: 75px;
-    }
+    .container-select {
 
-    p {
-      margin-top: 6px;
-      color: $cinzaMidle;
-      max-width: 25ch;
-    }
+      list-style: none;
+      display: flex;
+      gap: 100px;
+      flex-wrap: wrap;
+      font-size: 0.87rem;
+      place-content: center;
 
-    select {
-      padding: 0 15px;
-      cursor: pointer;
-      margin-top: 24px;
-      width: 220px;
-      height: 40px;
-      border-radius: 19px;
-      border: 1px solid;
-      color: $cinzaClaro;
+      img {
+        max-width: 100%;
+        height: 75px;
+      }
+
+      p {
+        margin-top: 6px;
+        color: $cinzaMidle;
+        max-width: 25ch;
+      }
+
+      select {
+        padding: 0 15px;
+        cursor: pointer;
+        margin-top: 24px;
+        width: 220px;
+        height: 40px;
+        border-radius: 19px;
+        border: 1px solid;
+        color: $cinzaClaro;
+      }
     }
   }
 
-  .second-title {
-    .pick-your-plant {
-      color: #0c261c;
-      display: none;
-    }
+  .container-second {
+    display: grid;
+    grid-template-columns: minmax(250px, 900px);
+    place-content: center;
 
-    img {
-      margin-top: 90px;
-      max-width: 158px;
-    }
+    .second-title {
 
-    h2 {
-      font-size: 3.4rem;
-    }
-
-    .ative {
-      display: block;
-    }
-
-    .items-plant {
-      margin: 33px auto 500px auto;
-
-      .no-results {
-        color: $cinzaMidle;
-        display: none;
-        place-items: center;
-        flex-wrap: wrap;
-        gap: 330px;
-        margin-top: 127px;
-
-        div h2 {
-          font-size: 2.4rem;
-        }
-
-        div p {
-          font-size: 1rem;
-          line-height: 1.7em;
-        }
+      .pick-your-plant {
+        color: #0c261c;
+        display: block;
+        
 
         img {
-          margin: 0px;
+          margin-top: 90px;
+          max-width: 158px;
+        }
+
+        h2 {
+          font-size: 3.4rem;
         }
       }
 
-      .ative-result {
-        display: flex;
-      }
+      .items-plant {
+        margin: 33px auto 500px auto;
 
-      .plant-list {
-        list-style: none;
-        display: grid;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 25px;
-        place-items: center;
-
-        li {
-          color: #1e6b4e;
-          font-weight: bold;
-          width: 206px;
-          height: 250px;
-          display: grid;
-          justify-content: center;
-          align-content: end;
+        .no-results {
+          color: $cinzaMidle;
+          display: none;
           place-items: center;
-          gap: 5px;
+          flex-wrap: wrap;
+          gap: 330px;
+          margin-top: 127px;
 
-          background: #fff;
-          border-radius: 5px;
+          div h2 {
+            font-size: 2.4rem;
+          }
+
+          div p {
+            font-size: 1rem;
+            line-height: 1.7em;
+          }
 
           img {
-            max-width: 130px;
-            display: block;
-            object-fit: cover;
+            margin: 0px;
           }
+        }
 
-          p {
-            place-self: start;
-          }
 
-          span {
-            place-self: start;
-            margin-bottom: 5px;
+        .plant-list {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 25px;
+          place-items: center;
+
+          li {
+            color: #1e6b4e;
+            font-weight: bold;
+            width: 206px;
+            height: 250px;
+            display: grid;
+            justify-content: center;
+            align-content: end;
+            place-items: center;
+            gap: 5px;
+            background: #fff;
+            border-radius: 5px;
+
+            img {
+              max-width: 130px;
+              display: block;
+              object-fit: cover;
+            }
+
+            p {
+              place-self: start;
+            }
+
+            span {
+              place-self: start;
+              margin-bottom: 5px;
+            }
           }
         }
       }

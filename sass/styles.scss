@@ -7,20 +7,9 @@ $cinzaClaro: #a8a8a8;
 $cinzaMidle: #848484;
 $greenDark: #1e6b4e;
 
-*,
-body,
-a,
-h1,
-h2,
-h3,
-div,
-section,
-header,
-footer,
-nav,
-img {
-    margin: 0px;
-    padding: 0px;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 

@@ -1,13 +1,12 @@
-const listPlants = document.querySelector('#plant-list');
-const sunSelect = document.querySelector('#sun');
-const waterSelect = document.querySelector('#water');
-const petsSelect = document.querySelector('#pets');
-const noResult = document.querySelector('#no-result');
-const pickPlant = document.querySelector('#pickPlant');
+const selectSun = document.querySelector("#sun")
+const selectWater = document.querySelector("#water")
+const selectPets = document.querySelector("#pets")
 
-let plants = [];
-let plantsFiltered = [];
-let isFiltered = false;
+const listPlants = document.getElementById('plant-list')
+const divNoResults = document.getElementById('no-result')
+const pickYourPlant = document.getElementById('pickPlant')
+
+let plants = []
 
 fetch('./plants.json')
   .then((response) => response.json())
@@ -17,90 +16,70 @@ fetch('./plants.json')
     render(data);
   })
   .catch((error) => {
-    console.error(' fetch unsuccessfully:', error);
+    console.error('fetch unsuccessfully:', error);
   });
 
-function filterPlants(e, type) {
-    if (isFiltered) listPlants.innerHTML = '';
+function filterPlants(value, type) {
+    clearValues(type)
 
-    let filterPlants = [];
+    const newList = plants.filter((item) => {
+      console.log(String(item[type]));
 
-    const updateValue = {
-      sun: () => {
-        if (waterSelect.value !== '' || petsSelect.value !== '') {
-          waterSelect.value = '';
-          petsSelect.value = '';
-        }
-        filterPlants = plants.filter((plant) => plant.sun === e.target.value);
-      },
+        return type !== 'toxicity' ? item[type] === value : String(item[type]) !== value 
+        
+    })
+  
+    render(newList)
 
-      water: () => {
-        if (sunSelect.value !== '' || petsSelect.value !== '') {
-          sunSelect.value = '';
-          petsSelect.value = '';
-        }
-
-        filterPlants = plants.filter((plant) => plant.water === e.target.value);
-      },
-
-      pets: () => {
-        if (waterSelect.value !== '' || sunSelect.value !== '') {
-          waterSelect.value = '';
-          sunSelect.value = '';
-        }
-        console.log(petsSelect.value);
-
-        filterPlants = plants.filter(
-          (plant) => String(plant.toxicity) !== e.target.value,
-        );
-
-        if (petsSelect.value === '') {
-          filterPlants = [];
-        }
-      },
-    };
-
-    updateValue[type]();
-
-    console.log(filterPlants);
-
-    if (filterPlants.length === 0) {
-      pickPlant.classList.remove('ative');
-      noResult.classList.add('ative-result');
-    } else {
-      pickPlant.classList.add('ative');
-      noResult.classList.remove('ative-result');
+    if(selectSun.value === '' && selectWater.value === '' && selectPets.value === ''){
+      listPlants.innerHTML = ""
+      pickYourPlant.style.display = 'none'
+      divNoResults.style.display = 'flex'
+    }else{
+      pickYourPlant.style.display = 'block'
+      divNoResults.style.display = 'none'
     }
-
-    render(filterPlants);
-
-    return (isFiltered = true);
+   
 }
 
-function render(plants) {
-  listPlants.innerHTML = '';
+function clearValues(type) {
+    
+    listPlants.innerHTML = ""
 
-  plants.forEach((plant) => {
-    const itemList = document.createElement('li');
-    const img = document.createElement('img');
-    const p = document.createElement('p');
-    const span = document.createElement('span');
-
-    img.src = plant.url;
-    img.alt = plant.name;
-    p.innerText = plant.name;
-    span.innerText = `$${plant.price}`;
-
-    Promise.all(
-      [itemList.appendChild(img)],
-      [itemList.appendChild(p)],
-      [itemList.appendChild(span)],
-    );
-
-    listPlants.appendChild(itemList);
-  });
+    switch (type) {
+        case 'sun':
+            selectWater.value = ""
+            selectPets.value = ""
+            return
+        case 'water':
+            selectSun.value = ""
+            selectPets.value = ""
+            return
+        case 'toxicity':
+            selectSun.value = ""
+            selectWater.value = ""
+        default:
+            return ""
+    }
 }
 
-sunSelect.addEventListener('change', (e) => filterPlants(e, 'sun'));
-waterSelect.addEventListener('change', (e) => filterPlants(e, 'water'));
-petsSelect.addEventListener('change', (e) => filterPlants(e, 'pets'));
+function render(data){
+  data.forEach((item) => {
+    const li = document.createElement('li')
+    const img = document.createElement('img')
+    const p = document.createElement('p')
+    const span = document.createElement('span')
+ 
+    img.src = item.url
+    img.alt = item.name
+    p.innerHTML = item.name
+    span.innerHTML = `$${item.price}`
+  
+    Promise.all([li.appendChild(img)], [li.appendChild(p)], [li.appendChild(span)])
+    listPlants.appendChild(li)
+  })
+}
+
+selectSun.addEventListener("change", (e) => filterPlants(e.target.value, 'sun'))
+selectWater.addEventListener("change", (e) => filterPlants(e.target.value, 'water'))
+selectPets.addEventListener("change", (e) => filterPlants(e.target.value, 'toxicity'))
