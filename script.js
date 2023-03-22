@@ -21,60 +21,60 @@ fetch('./plants.json')
   });
 
 function filterPlants(e, type) {
-  if (isFiltered) listPlants.innerHTML = '';
+    if (isFiltered) listPlants.innerHTML = '';
 
-  let filterPlants = [];
+    let filterPlants = [];
 
-  const updateValue = {
-    sun: () => {
-      if (waterSelect.value !== '' || petsSelect.value !== '') {
-        waterSelect.value = '';
-        petsSelect.value = '';
-      }
-      filterPlants = plants.filter((plant) => plant.sun === e.target.value);
-    },
+    const updateValue = {
+      sun: () => {
+        if (waterSelect.value !== '' || petsSelect.value !== '') {
+          waterSelect.value = '';
+          petsSelect.value = '';
+        }
+        filterPlants = plants.filter((plant) => plant.sun === e.target.value);
+      },
 
-    water: () => {
-      if (sunSelect.value !== '' || petsSelect.value !== '') {
-        sunSelect.value = '';
-        petsSelect.value = '';
-      }
+      water: () => {
+        if (sunSelect.value !== '' || petsSelect.value !== '') {
+          sunSelect.value = '';
+          petsSelect.value = '';
+        }
 
-      filterPlants = plants.filter((plant) => plant.water === e.target.value);
-    },
+        filterPlants = plants.filter((plant) => plant.water === e.target.value);
+      },
 
-    pets: () => {
-      if (waterSelect.value !== '' || sunSelect.value !== '') {
-        waterSelect.value = '';
-        sunSelect.value = '';
-      }
-      console.log(petsSelect.value);
+      pets: () => {
+        if (waterSelect.value !== '' || sunSelect.value !== '') {
+          waterSelect.value = '';
+          sunSelect.value = '';
+        }
+        console.log(petsSelect.value);
 
-      filterPlants = plants.filter(
-        (plant) => String(plant.toxicity) !== e.target.value,
-      );
-      
-      if (petsSelect.value == '') {
-        filterPlants = [];
-      }
-    },
-  };
+        filterPlants = plants.filter(
+          (plant) => String(plant.toxicity) !== e.target.value,
+        );
 
-  updateValue[type]();
+        if (petsSelect.value === '') {
+          filterPlants = [];
+        }
+      },
+    };
 
-  console.log(filterPlants);
+    updateValue[type]();
 
-  if (filterPlants.length === 0) {
-    pickPlant.classList.remove('ative');
-    noResult.classList.add('ative-result');
-  } else {
-    pickPlant.classList.add('ative');
-    noResult.classList.remove('ative-result');
-  }
+    console.log(filterPlants);
 
-  render(filterPlants);
+    if (filterPlants.length === 0) {
+      pickPlant.classList.remove('ative');
+      noResult.classList.add('ative-result');
+    } else {
+      pickPlant.classList.add('ative');
+      noResult.classList.remove('ative-result');
+    }
 
-  return (isFiltered = true);
+    render(filterPlants);
+
+    return (isFiltered = true);
 }
 
 function render(plants) {
