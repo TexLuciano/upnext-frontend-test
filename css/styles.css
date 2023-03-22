@@ -1,15 +1,5 @@
-*, body, a, h1, h2, h3, div, section, header, footer, nav {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-}
-
-.header {
-  background-color: #75BC97;
+.header .banner-desktop {
+  background-color: #75bc97;
   margin: 0 auto;
   display: flex;
   object-fit: cover;
@@ -17,57 +7,83 @@ body {
   max-width: 100%;
   height: 500px;
 }
-.header img {
+.header .banner-desktop img {
   display: block;
   max-width: 100%;
 }
-.header .banner-left {
+.header .banner-desktop .banner-left {
   width: 50%;
 }
-.header .banner-center {
+.header .banner-desktop .banner-center {
   object-fit: cover;
   width: 20%;
 }
-.header .banner-right {
+.header .banner-desktop .banner-right {
   object-fit: cover;
   width: 30%;
 }
-
-.main-title {
-  position: absolute;
-  left: 10%;
-  top: 8%;
-  font-size: 2.4rem;
-  line-height: 2.5em;
+.header .banner-mobile {
+  display: none;
+  background: #75bc97;
+  width: 100vw;
+  max-width: 100%;
 }
-.main-title h1 {
+.header .banner-mobile img {
+  width: 100vw;
+  max-width: 100%;
+}
+.header .main-title {
+  position: absolute;
+  left: 100px;
+  top: 15px;
+}
+.header .main-title h1 {
+  font-size: 4.3rem;
+  line-height: 1.4em;
   margin-top: 20px;
   color: white;
 }
-
-.select-menu {
-  margin-top: 50px;
-  display: grid;
-  justify-content: center;
+@media (max-width: 920px) {
+  .header .banner-desktop {
+    display: none;
+  }
+  .header .banner-mobile {
+    display: block;
+  }
 }
-.select-menu .container-select {
+@media (max-width: 600px) {
+  .header .main-title {
+    left: 20px;
+  }
+  .header .main-title h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.section {
+  display: grid;
+  margin: 47px auto;
   justify-content: center;
+  grid-template-columns: minmax(280px, 900px);
+}
+.section .container-select {
   list-style: none;
   display: flex;
   gap: 100px;
   flex-wrap: wrap;
   font-size: 0.87rem;
+  place-content: center;
 }
-.select-menu .container-select img {
+.section .container-select img {
   max-width: 100%;
   height: 75px;
 }
-.select-menu .container-select p {
+.section .container-select p {
   margin-top: 6px;
   color: #848484;
   max-width: 25ch;
 }
-.select-menu .container-select select {
+.section .container-select select {
   padding: 0 15px;
   cursor: pointer;
   margin-top: 24px;
@@ -75,14 +91,119 @@ body {
   height: 40px;
   border-radius: 19px;
   border: 1px solid;
-  color: #A8A8A8;
+  color: #a8a8a8;
 }
-.select-menu .second-title img {
+.section .second-title .pick-your-plant {
+  color: #0c261c;
+  display: none;
+}
+.section .second-title img {
   margin-top: 90px;
   max-width: 158px;
 }
-.select-menu .second-title h2 {
+.section .second-title h2 {
   font-size: 3.4rem;
+}
+.section .second-title .ative {
+  display: block;
+}
+.section .second-title .items-plant {
+  margin: 33px auto 500px auto;
+}
+.section .second-title .items-plant .no-results {
+  color: #848484;
+  display: none;
+  place-items: center;
+  flex-wrap: wrap;
+  gap: 330px;
+  margin-top: 127px;
+}
+.section .second-title .items-plant .no-results div h2 {
+  font-size: 2.4rem;
+}
+.section .second-title .items-plant .no-results div p {
+  font-size: 1rem;
+  line-height: 1.7em;
+}
+.section .second-title .items-plant .no-results img {
+  margin: 0px;
+}
+.section .second-title .items-plant .ative-result {
+  display: flex;
+}
+.section .second-title .items-plant .plant-list {
+  list-style: none;
+  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  place-items: center;
+}
+.section .second-title .items-plant .plant-list li {
+  color: #1e6b4e;
+  font-weight: bold;
+  width: 206px;
+  height: 250px;
+  display: grid;
+  justify-content: center;
+  align-content: end;
+  place-items: center;
+  gap: 5px;
+  background: #fff;
+  border-radius: 5px;
+}
+.section .second-title .items-plant .plant-list li img {
+  max-width: 130px;
+  display: block;
+  object-fit: cover;
+}
+.section .second-title .items-plant .plant-list li p {
+  place-self: start;
+}
+.section .second-title .items-plant .plant-list li span {
+  place-self: start;
+  margin-bottom: 5px;
+}
+@media (max-width: 920px) {
+  .section {
+    margin: 47px 15px;
+  }
+  .section .no-results {
+    margin: auto 10px;
+    place-content: center;
+  }
+  .section .no-results img {
+    display: none;
+  }
+  .section .second-title {
+    display: grid;
+    place-items: center;
+  }
+  .section .plant-list {
+    place-content: center;
+  }
+}
+
+*,
+body,
+a,
+h1,
+h2,
+h3,
+div,
+section,
+header,
+footer,
+nav,
+img {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f2f2f2;
 }
 
 /*# sourceMappingURL=styles.css.map */

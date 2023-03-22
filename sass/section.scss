@@ -1,0 +1,154 @@
+$verdeClaro: #75bc97;
+$halfWhite: #f2f2f2;
+$cinzaClaro: #a8a8a8;
+$cinzaMidle: #848484;
+$greenDark: #1e6b4e;
+
+.section {
+  display: grid;
+  margin: 47px auto;
+  justify-content: center;
+  grid-template-columns: minmax(280px, 900px);
+
+  .container-select {
+    list-style: none;
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    font-size: 0.87rem;
+    place-content: center;
+
+    img {
+      max-width: 100%;
+      height: 75px;
+    }
+
+    p {
+      margin-top: 6px;
+      color: $cinzaMidle;
+      max-width: 25ch;
+    }
+
+    select {
+      padding: 0 15px;
+      cursor: pointer;
+      margin-top: 24px;
+      width: 220px;
+      height: 40px;
+      border-radius: 19px;
+      border: 1px solid;
+      color: $cinzaClaro;
+    }
+  }
+
+  .second-title {
+    .pick-your-plant {
+      color: #0c261c;
+      display: none;
+    }
+
+    img {
+      margin-top: 90px;
+      max-width: 158px;
+    }
+
+    h2 {
+      font-size: 3.4rem;
+    }
+
+    .ative {
+      display: block;
+    }
+
+    .items-plant {
+      margin: 33px auto 500px auto;
+
+      .no-results {
+        color: $cinzaMidle;
+        display: none;
+        place-items: center;
+        flex-wrap: wrap;
+        gap: 330px;
+        margin-top: 127px;
+
+        div h2 {
+          font-size: 2.4rem;
+        }
+
+        div p {
+          font-size: 1rem;
+          line-height: 1.7em;
+        }
+
+        img {
+          margin: 0px;
+        }
+      }
+
+      .ative-result {
+        display: flex;
+      }
+
+      .plant-list {
+        list-style: none;
+        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        place-items: center;
+
+        li {
+          color: #1e6b4e;
+          font-weight: bold;
+          width: 206px;
+          height: 250px;
+          display: grid;
+          justify-content: center;
+          align-content: end;
+          place-items: center;
+          gap: 5px;
+
+          background: #fff;
+          border-radius: 5px;
+
+          img {
+            max-width: 130px;
+            display: block;
+            object-fit: cover;
+          }
+
+          p {
+            place-self: start;
+          }
+
+          span {
+            place-self: start;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
+    margin: 47px 15px;
+
+    .no-results {
+      margin: auto 10px;
+      place-content: center;
+
+      img {
+        display: none;
+      }
+    }
+
+    .second-title {
+      display: grid;
+      place-items: center;
+    }
+
+    .plant-list {
+      place-content: center;
+    }
+  }
+}

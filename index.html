@@ -11,10 +11,16 @@
 
 <body>
   <header class="header">
-    <img class="banner-left" src="/images/hero/desktop/left-leaves.png" alt="">
-    <img class="banner-center" src="/images/hero/desktop/plantperson.png" alt="">
-    <img class="banner-right" src="/images/hero/desktop/right-leaves.png" alt="">
+    <div class="banner-desktop">
+      <img class="banner-left" src="/images/hero/desktop/left-leaves.png" alt="">
+      <img class="banner-center" src="/images/hero/desktop/plantperson.png" alt="">
+      <img class="banner-right" src="/images/hero/desktop/right-leaves.png" alt="">
+    </div>
 
+    <div class="banner-mobile">
+      <img src="/images/hero/mobile/mobile-leaves.png" alt="mobile-banner">
+      <img class="banner-center" src="/images/hero/mobile/mobile-plantperson.png" alt="person">
+    </div>
     <div class="main-title">
       <img id="green" src="images/icons/logo-white.svg" alt="green thumb logo" />
       <h1>Find your<br />next green<br />friend</h1>
@@ -22,7 +28,7 @@
     </div>
   </header>
 
-  <section class="select-menu ">
+  <section class="section">
     <ul class="container-select">
       <li class="container-item sun">
         <img src="/images/illustrations/sun.png" alt="sun">
@@ -58,22 +64,29 @@
         </select>
       </li>
     </ul>
-
     <div class="second-title">
-      <img id="hand" src="./images/illustrations/pick.png" alt="hand">
-      <h2>Our picks for you</h2>
-  
+      <div class="pick-your-plant ative" id="pickPlant">
+        <img id="hand" src="./images/illustrations/pick.png" alt="hand">
+        <h2>Our picks for you</h2>
+      </div>
       <div class="items-plant">
-        <ul id="plant-list">
+        <div class="no-results" id="no-result">
+          <div>
+            <h2>No results yet…</h2>
+            <p>Use the filters above to find<br /> the plant that best fits your<br /> environment :) </p>
+          </div>
+          <img src="/images/illustrations/no-results.png" alt="">
+        </div>
+
+        <ul class="plant-list" id="plant-list">
         </ul>
       </div>
     </div>
-
   </section>
 
 
 
-  <script src="./script.js" ></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
